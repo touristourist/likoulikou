@@ -14,6 +14,6 @@ public:
             }
             mapp[nums[i]]=i;  //没找到，将该位置的数加入到hashmap中
         }
-        return {}
+        return {};
     }
 };
