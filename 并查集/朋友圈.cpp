@@ -52,7 +52,6 @@
  * 
  */
 #include<vector>
-#include<iostream>
 using namespace std;
 class Solution {
 public:
@@ -68,8 +67,9 @@ public:
         }
         int cnt=0;
         for(int i=0;i<len;i++){
-            cout<<bin[i]<<" c "<<i<<endl;
-            if(bin[i]=i) cnt++;
+
+            if(bin[i]==i) cnt++;
+
         }
             
         return cnt;
