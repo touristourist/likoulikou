@@ -1,0 +1,30 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int pathSum(TreeNode* root, int sum) {
+        if(root==NULL) return 0;
+        int includethis=count(root,sum);
+        int lef=pathSum(root->left,sum);
+        int rig=pathSum(root->right,sum);
+        return includethis+lef+rig;
+        
+    }
+    int count(TreeNode* root,int sum){ //必须包括root节点，返回root这支满足要求的数目
+        if(root==NULL) return 0;
+        //自己这个节点满足给定的sum要求吗
+        int menum=root->val==sum?1:0;
+        //左右子树中可以和root凑成sum的有多少
+        int leftnum=count(root->left,sum-root->val);
+        int rightnum=count(root->right,sum-root->val);
+        return menum+leftnum+rightnum;
+        
+    }
+};
